@@ -1,0 +1,26 @@
+# Optional: run the app in Docker. Supabase must be running on the host first.
+# One-click local (recommended): use  npm run local  (starts Supabase + app without this file).
+#
+# Usage:
+#   1. Start Supabase:  npx supabase start
+#   2. Create .env:    run  npm run local  once and Ctrl+C after .env is written, or copy from  npx supabase status
+#   3. Run app:        docker compose up
+# Open http://localhost:5173
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5173:5173"
+    env_file:
+      - .env
+    environment:
+      # So Vite proxy from inside container can reach Supabase on host
+      - VITE_SUPABASE_URL=http://host.docker.internal:54321
+      - VITE_SUPABASE_FUNCTIONS_URL=http://host.docker.internal:54321
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: npm run dev

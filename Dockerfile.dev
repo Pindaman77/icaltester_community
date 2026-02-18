@@ -1,0 +1,9 @@
+# Dev image: run  npm run dev  in container (source mounted).
+# Use with docker-compose.yml. Supabase runs on host.
+FROM node:20-alpine
+WORKDIR /app
+COPY package.json package-lock.json* ./
+RUN npm ci 2>/dev/null || npm install
+COPY . .
+EXPOSE 5173
+CMD ["npm", "run", "dev"]

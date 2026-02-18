@@ -1,0 +1,50 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Folders (design and docs are dev-only, not for open repo)
+node_modules
+design
+docs
+dist
+dist-ssr
+*.local
+
+# Environment (never commit secrets)
+.env
+.env.local
+.env.development
+.env.development.local
+.env.production
+.env.production.local
+.env.*.local
+
+# Supabase CLI
+supabase/.temp/
+
+# Hidden folders (do not track), except .vscode and .githooks
+.*/
+!.vscode/
+!.githooks/
+
+# Cursor and Codex (do not track)
+.cursor/
+.codex/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+

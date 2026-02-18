@@ -1,0 +1,10 @@
+#!/bin/sh
+# Block commits that add or modify .env or other env files with secrets.
+# Install: git config core.hooksPath .githooks  (from repo root)
+
+if git diff --cached --name-only | grep -E '^\.env$|^\.env\.(local|development|production)(\.local)?$'; then
+  echo "ERROR: Commit contains .env or env file. Remove it and use .env.example as a template."
+  echo "  Unstage: git reset HEAD -- .env"
+  exit 1
+fi
+exit 0
