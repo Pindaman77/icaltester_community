@@ -12,9 +12,13 @@ To **move this branch into a new repo** and use a **new database** (recommended 
 
 For migration strategy and archived history, see [Community baseline migrations](docs/community-baseline-migrations.md).
 
+## Start now
+
+**New to the project?** See **[START.md](START.md)** for a minimal setup so you can run the app and sign in right away.
+
 ## Functionality
 
-- **Auth**: Supabase Auth (magic link/password/OAuth depending on your Supabase configuration).
+- **Auth**: Supabase Auth (email/password; Google OAuth when configured). The app always requires a signed-in user for the dashboard and API. **Local (Supabase in Docker)**: use email/password (Sign up once, then Sign in); Google typically does not work unless you add the local callback URL in Google Cloud. **Online (hosted Supabase)**: enable Google in Supabase Dashboard and add your production callback URL in Google Cloud for "Continue with Google."
 - **Calendars**: Create, rename, delete calendars; per-calendar public feed token.
 - **Bookings**: Manual all-day bookings with statuses (confirmed, cancelled, tentative, pending).
 - **Subscriptions**: Add external ICS URLs; enable/disable; poll interval; sync now; sync logs.
@@ -126,4 +130,4 @@ Build with `npm run build` and deploy `dist/`. Configure proxying so `/ics-feed/
 
 ## License
 
-License for public distribution is maintained by project owners. Add a `LICENSE` file before publishing this branch as open source.
+Licensed under the Apache License, Version 2.0. See [LICENSE](LICENSE) for the full text.
